@@ -1,6 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {do_select_sort} from '../../store/actions';
+import { connect } from 'react-redux';
+import { do_start_sort } from '../../store/actions';
 
 const ControlBar = ({ sortMethod, startSort }) => {
     return (
@@ -15,6 +15,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    startSort: () => dispatch(do_select_sort())
+    startSort: () => dispatch(do_start_sort())
 })
 export default connect(mapStateToProps, mapDispatchToProps)(ControlBar);
