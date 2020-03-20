@@ -1,14 +1,13 @@
 import React from 'react'
 import './bar.style.css';
 
-const Bar = ({ height, currentIndice,currentIndice2, lowest }) => {
-    console.log(currentIndice);
+const Bar = ({ height, currentJ, currentLower }) => {
+    //console.log(currentIndice);
     const style = {
         height: `${height*20+10}px`,
-        backgroundColor:  currentIndice2 ? 'red' : lowest ? 'yellow' : 'aqua'
-        //backgroundColor: lowest ? 'yellow' : 'aqua',
+        backgroundColor:  currentJ ? 'red' : currentLower ? 'yellow' : 'aqua'
     }
-    const active_classess = lowest ? 'bar isCurrent' : 'bar'; 
+    const active_classess = 'bar'; 
     return (
         <div className={active_classess} style={style}></div>
     );

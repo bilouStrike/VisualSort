@@ -4,4 +4,17 @@ export const do_select_sort = () => ({
 
 export const do_start_sort = () => ({
     type: 'DO_START_SORT'
-})
+});
+
+export const do_update_j = (newJ, arr) => ({
+    type: 'UPDATE_J',
+    payload: newJ,
+    arrState:arr
+});
+
+export const do_update_lower = (lower, arr) => ({
+    type: 'UPDATE_LOWER',
+    payload: lower,
+    arrState:arr
+});
+
