@@ -2,7 +2,7 @@ import generateValuesArray from '../helpers/generateValuesArray';
 import selectionSort from '../algorithm/selectionSort';
 
 const INITIAL_STATE = {
-    dataArray:generateValuesArray(10),
+    dataArray:generateValuesArray(50),
     lower : 0,
     currentI:0,
     currentJ:1,
@@ -27,12 +27,13 @@ const sortReducer = ( state = INITIAL_STATE, action ) => {
             return {
                 ...state,
                 currentJ:action.payload,
-                //dataArray: action.arrState
+                dataArray: action.arrState
             }
         case 'UPDATE_LOWER':
             return {
                 ...state,
                 currentLower:action.payload,
+                dataArray: action.arrState
             }
         default:
             return state

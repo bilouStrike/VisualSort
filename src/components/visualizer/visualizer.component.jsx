@@ -8,7 +8,6 @@ import selectionSort  from  './../../algorithm/selectionSort';
 const SortVisualizer = ({ dataArray ,currentI, currentJ, currentLower, dispatch, isStart, sort }) =>  {
 
     //const { data, currentIndice, lowest, currentIndice2 } = dataArray; 
-        console.log('current j : '+currentJ);
     useEffect(() => {
         if ( isStart ) { 
             return () => sort(dataArray, dispatch, isStart);
@@ -39,6 +38,7 @@ const mapStateToProps = (state) => ({
     dataArray: state.dataArray,
     isStart: state.start,
     currentI:state.currentI,
+    currentJ:state.currentJ,
     currentLower:state.currentLower
 });
 
