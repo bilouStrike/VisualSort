@@ -18,3 +18,9 @@ export const do_update_lower = (lower, arr) => ({
     arrState:arr
 });
 
+export const do_swap = (swap, arr) => ({
+    type: 'SWAP_OP',
+    payload: swap,
+    arrState:arr
+});
+

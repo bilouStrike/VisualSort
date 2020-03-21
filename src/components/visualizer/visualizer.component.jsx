@@ -5,7 +5,7 @@ import './visualizer.css';
 
 import selectionSort  from  './../../algorithm/selectionSort';
 
-const SortVisualizer = ({ dataArray ,currentI, currentJ, currentLower, dispatch, isStart, sort }) =>  {
+const SortVisualizer = ({ dataArray ,currentI, currentJ, swap, currentLower, dispatch, isStart, sort }) =>  {
 
     //const { data, currentIndice, lowest, currentIndice2 } = dataArray; 
     useEffect(() => {
@@ -28,6 +28,7 @@ const SortVisualizer = ({ dataArray ,currentI, currentJ, currentLower, dispatch,
                         height={value}
                         currentJ={currentJ == index ? true : false}
                         currentLower={currentLower == index ? true : false}
+                        swap={ swap.includes(index) ? true : false  }
                     />
                 ))
             }
@@ -39,7 +40,8 @@ const mapStateToProps = (state) => ({
     isStart: state.start,
     currentI:state.currentI,
     currentJ:state.currentJ,
-    currentLower:state.currentLower
+    currentLower:state.currentLower,
+    swap:state.swap
 });
 
 const mapDispatchToProps = dispatch => ({

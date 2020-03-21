@@ -1,4 +1,4 @@
-import { do_update_j, do_update_lower } from '../store/actions';
+import { do_update_j, do_update_lower, do_swap } from '../store/actions';
 
 function selectionSort(array, dispatch, isStart) {
     let arr = array.slice(0);
@@ -23,6 +23,8 @@ function doSelectionSort(arr, DispatchSignal) {
             var temp = arr[i];
             arr[i] = arr[lowest];
             arr[lowest] = temp;
+            DispatchSignal.push({ action:'SWAP_OP', value:[i,lowest], lastarr: arr.slice(0) });
+            DispatchSignal.push({ action:'SWAP_OP', value:[], lastarr: arr.slice(0) });
         }
     }
 }
@@ -39,13 +41,16 @@ function runDispatch(array, DispatchSignal, dispatch) {
         case 'UPDATE_LOWER':
                 dispatch(do_update_lower(action.value, action.lastarr))
             break;
+        case 'SWAP_OP':
+                dispatch(do_swap(action.value, action.lastarr))
+            break;
 
         default:
             break;
     }
     setTimeout(() => {
         runDispatch(array, DispatchSignal, dispatch);
-    }, 10);
+    }, 200);
 }
 
 export default selectionSort;
