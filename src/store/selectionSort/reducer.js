@@ -1,8 +1,8 @@
-import generateValuesArray from '../helpers/generateValuesArray';
-import selectionSort from '../algorithm/selectionSort';
+import generateValuesArray from '../../helpers/generateValuesArray';
+import selectionSort from '../../algorithm/selectionSort';
 
 const INITIAL_STATE = {
-    dataArray:generateValuesArray(10),
+    dataArray:generateValuesArray(30),
     lower : 0,
     currentI:0,
     currentJ:1,
@@ -19,11 +19,11 @@ const sortReducer = ( state = INITIAL_STATE, action ) => {
                 ...state,
                 start: !state.start,
             }
-        case 'DO_SORT_SELECTION':
+        /*case 'DO_SORT_SELECTION':
             return {
                 ...state,
                 dataArray: selectionSort(state.dataArray)
-            }
+            }*/
         case 'UPDATE_J':
             return {
                 ...state,

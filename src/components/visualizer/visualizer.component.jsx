@@ -6,18 +6,11 @@ import './visualizer.css';
 import selectionSort  from  './../../algorithm/selectionSort';
 
 const SortVisualizer = ({ dataArray ,currentI, currentJ, swap, currentLower, dispatch, isStart, sort }) =>  {
-
-    //const { data, currentIndice, lowest, currentIndice2 } = dataArray; 
+    
     useEffect(() => {
         if ( isStart ) { 
-            return () => sort(dataArray, dispatch, isStart);
-            /*
-            const timer = setTimeout(
-                () => sort(dataArray, dispatch),
-               500
-            );
-            return () => clearTimeout(timer);*/
-        }
+            return () => sort(dataArray, dispatch);
+         }
     });
     
     return (
@@ -35,13 +28,13 @@ const SortVisualizer = ({ dataArray ,currentI, currentJ, swap, currentLower, dis
         </div>
 )}
 
-const mapStateToProps = (state) => ({
-    dataArray: state.dataArray,
-    isStart: state.start,
-    currentI:state.currentI,
-    currentJ:state.currentJ,
-    currentLower:state.currentLower,
-    swap:state.swap
+const mapStateToProps = state => ({
+    dataArray: state.selectionSortReducer.dataArray,
+    isStart: state.selectionSortReducer.start,
+    currentI:state.selectionSortReducer.currentI,
+    currentJ:state.selectionSortReducer.currentJ,
+    currentLower:state.selectionSortReducer.currentLower,
+    swap:state.selectionSortReducer.swap,
 });
 
 const mapDispatchToProps = dispatch => ({

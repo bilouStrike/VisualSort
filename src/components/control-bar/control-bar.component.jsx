@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { do_start_sort } from '../../store/actions';
+import { do_start_sort } from '../../store/selectionSort/actions';
+
 import './../../algorithm/selectionSort';
 
-const ControlBar = ({ sortMethod, startSort, dispatch }) => {
+const ControlBar = ({ startSort }) => {
     return (
         <div className='control-bar'>
             <button> New </button>
@@ -11,11 +12,9 @@ const ControlBar = ({ sortMethod, startSort, dispatch }) => {
         </div>
     )
 }
-const mapStateToProps = state => ({
-    sortMethod:state.sortMethod
-})
 
 const mapDispatchToProps = dispatch => ({
     startSort: () => dispatch(do_start_sort()),
-})
-export default connect(mapStateToProps, mapDispatchToProps)(ControlBar);
+});
+
+export default connect(null, mapDispatchToProps)(ControlBar);

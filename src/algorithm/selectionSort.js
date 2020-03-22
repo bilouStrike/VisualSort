@@ -1,10 +1,10 @@
-import { do_update_j, do_update_lower, do_swap } from '../store/actions';
+import { do_update_j, do_update_lower, do_swap } from '../store/selectionSort/actions';
 
-function selectionSort(array, dispatch, isStart) {
+function selectionSort(array, dispatch) {
     let arr = array.slice(0);
     let DispatchSignal = [];
     doSelectionSort(arr, DispatchSignal);
-    runDispatch( arr, DispatchSignal, dispatch, isStart);  
+    runDispatch( arr, DispatchSignal, dispatch);  
     return arr;  
 }
 
@@ -50,7 +50,7 @@ function runDispatch(array, DispatchSignal, dispatch) {
     }
     setTimeout(() => {
         runDispatch(array, DispatchSignal, dispatch);
-    }, 200);
+    }, 50);
 }
 
 export default selectionSort;

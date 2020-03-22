@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
         <TopMenu/>
-        <SortVisualizer/>
+          <SortVisualizer/>
         <ControlBar/>
     </div>
   );
