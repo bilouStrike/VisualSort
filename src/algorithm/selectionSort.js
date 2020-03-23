@@ -1,4 +1,5 @@
 import { do_update_j, do_update_lower, do_swap } from '../store/selectionSort/actions';
+import { update_array } from '../store/settings/actions';
 
 function selectionSort(array, dispatch) {
     let arr = array.slice(0);
@@ -15,7 +16,8 @@ function doSelectionSort(arr, DispatchSignal) {
             DispatchSignal.push({ action:'UPDATE_J', value:j , lastarr: arr.slice(0) });
             if (arr[j] < arr[lowest]) {
                 lowest = j; 
-                DispatchSignal.push({ action:'UPDATE_LOWER', value:lowest, lastarr: arr.slice(0) });
+                DispatchSignal.push({ action:'UPDATE_LOWER', value:lowest });
+                DispatchSignal.push({ action:'UPDATE_ARRAY', value: arr.slice(0) });
             }
         }
         if ( i !== lowest ) {
@@ -23,8 +25,10 @@ function doSelectionSort(arr, DispatchSignal) {
             var temp = arr[i];
             arr[i] = arr[lowest];
             arr[lowest] = temp;
-            DispatchSignal.push({ action:'SWAP_OP', value:[i,lowest], lastarr: arr.slice(0) });
-            DispatchSignal.push({ action:'SWAP_OP', value:[], lastarr: arr.slice(0) });
+            DispatchSignal.push({ action:'SWAP_OP', value:[i,lowest] });
+            DispatchSignal.push({ action:'SWAP_OP', value:[] });
+            DispatchSignal.push({ action:'UPDATE_ARRAY', value: arr.slice(0) });
+
         }
     }
 }
@@ -36,15 +40,16 @@ function runDispatch(array, DispatchSignal, dispatch) {
 
     switch (action.action) {
         case 'UPDATE_J':
-                dispatch(do_update_j(action.value, action.lastarr))
+                dispatch(do_update_j(action.value))
             break;
         case 'UPDATE_LOWER':
-                dispatch(do_update_lower(action.value, action.lastarr))
+                dispatch(do_update_lower(action.value))
             break;
         case 'SWAP_OP':
-                dispatch(do_swap(action.value, action.lastarr))
+                dispatch(do_swap(action.value))
             break;
-
+        case 'UPDATE_ARRAY':
+                dispatch(update_array(action.value))
         default:
             break;
     }

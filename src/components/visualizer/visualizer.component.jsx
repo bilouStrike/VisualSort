@@ -3,16 +3,8 @@ import { connect } from 'react-redux';
 import Bar from './../bar/bar.component';
 import './visualizer.css';
 
-import selectionSort  from  './../../algorithm/selectionSort';
-
-const SortVisualizer = ({ dataArray ,currentI, currentJ, swap, currentLower, dispatch, isStart, sort }) =>  {
-    
-    useEffect(() => {
-        if ( isStart ) { 
-            return () => sort(dataArray, dispatch);
-         }
-    });
-    
+const SortVisualizer = ({ dataArray, currentJ, swap, currentLower }) =>  {
+   
     return (
         <div className='visualizer-container'>
             {
@@ -29,17 +21,11 @@ const SortVisualizer = ({ dataArray ,currentI, currentJ, swap, currentLower, dis
 )}
 
 const mapStateToProps = state => ({
-    dataArray: state.selectionSortReducer.dataArray,
-    isStart: state.selectionSortReducer.start,
-    currentI:state.selectionSortReducer.currentI,
+    dataArray: state.settingReducer.dataArray,
     currentJ:state.selectionSortReducer.currentJ,
     currentLower:state.selectionSortReducer.currentLower,
     swap:state.selectionSortReducer.swap,
 });
 
-const mapDispatchToProps = dispatch => ({
-    sort: dataArray => {
-        selectionSort( dataArray, dispatch );
-    }
-});
-export default connect(mapStateToProps,mapDispatchToProps)(SortVisualizer);
+
+export default connect(mapStateToProps)(SortVisualizer);

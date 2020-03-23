@@ -6,21 +6,18 @@ export const do_start_sort = () => ({
     type: 'DO_START_SORT'
 });
 
-export const do_update_j = (newJ, arr) => ({
+export const do_update_j =  newJ => ({
     type: 'UPDATE_J',
     payload: newJ,
-    arrState:arr
 });
 
-export const do_update_lower = (lower, arr) => ({
+export const do_update_lower = lower => ({
     type: 'UPDATE_LOWER',
     payload: lower,
-    arrState:arr
 });
 
-export const do_swap = (swap, arr) => ({
+export const do_swap = swap => ({
     type: 'SWAP_OP',
     payload: swap,
-    arrState:arr
 });
 
