@@ -13,12 +13,12 @@ function doSelectionSort(arr, DispatchSignal) {
     for ( var i = 0; i < arr.length; i++ ) {
         var lowest = i;
         for ( var j = i+1; j < arr.length; j++ ) {
-            DispatchSignal.push({ action:'UPDATE_J', value:j , lastarr: arr.slice(0) });
             if (arr[j] < arr[lowest]) {
                 lowest = j; 
                 DispatchSignal.push({ action:'UPDATE_LOWER', value:lowest });
                 DispatchSignal.push({ action:'UPDATE_ARRAY', value: arr.slice(0) });
             }
+            DispatchSignal.push({ action:'UPDATE_J', value:j});
         }
         if ( i !== lowest ) {
             //SWAP!
@@ -35,6 +35,8 @@ function doSelectionSort(arr, DispatchSignal) {
 function runDispatch(array, DispatchSignal, dispatch) {
     if (!DispatchSignal.length) {
         dispatch(set_running(false));
+        dispatch(do_update_j(0));
+        dispatch(do_update_lower(0));
         dispatch(set_sorted(true));
         return;
     } 

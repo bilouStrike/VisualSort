@@ -2,7 +2,7 @@
 const INITIAL_STATE = {
     lower : 0,
     currentI:0,
-    currentJ:1,
+    currentJ:0,
     currentLower:0,
     swap: [],
 }
