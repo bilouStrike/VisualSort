@@ -1,5 +1,5 @@
 import { do_update_j, do_update_lower, do_swap } from '../store/selectionSort/actions';
-import { update_array } from '../store/settings/actions';
+import { update_array, set_sorted, set_running } from '../store/settings/actions';
 
 function selectionSort(array, dispatch) {
     let arr = array.slice(0);
@@ -28,14 +28,17 @@ function doSelectionSort(arr, DispatchSignal) {
             DispatchSignal.push({ action:'SWAP_OP', value:[i,lowest] });
             DispatchSignal.push({ action:'SWAP_OP', value:[] });
             DispatchSignal.push({ action:'UPDATE_ARRAY', value: arr.slice(0) });
-
         }
     }
 }
 
 function runDispatch(array, DispatchSignal, dispatch) {
-    if ( !DispatchSignal.length ) return;
-
+    if (!DispatchSignal.length) {
+        dispatch(set_running(false));
+        dispatch(set_sorted(true));
+        return;
+    } 
+   
     let action = DispatchSignal.shift();
 
     switch (action.action) {
@@ -50,8 +53,8 @@ function runDispatch(array, DispatchSignal, dispatch) {
             break;
         case 'UPDATE_ARRAY':
                 dispatch(update_array(action.value))
-        default:
             break;
+            default:
     }
     setTimeout(() => {
         runDispatch(array, DispatchSignal, dispatch);

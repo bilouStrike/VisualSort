@@ -1,11 +1,11 @@
 import React from 'react'
 import './bar.style.css';
 
-const Bar = ({ height, currentJ, currentLower, swap }) => {
+const Bar = ({ height, currentJ, currentLower, swap, sorted }) => {
 
     const style = {
         height: `${height*12+10}px`,
-        backgroundColor: swap ? 'blue' : currentJ ? 'red' : currentLower ? 'yellow' : 'aqua'
+        backgroundColor: swap ? 'blue' : currentJ ? 'red' : currentLower ? 'yellow' : sorted ? 'gray' : 'aqua'
     }
     const active_classess = 'bar'; 
     return (

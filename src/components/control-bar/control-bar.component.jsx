@@ -1,27 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { do_start_sort } from '../../store/selectionSort/actions';
 
 import selectionSort  from  './../../algorithm/selectionSort';
+import { set_array, set_array_length, set_running, set_sorted } from '../../store/settings/actions';
+import { Button } from '@material-ui/core';
 
-const ControlBar = ({ startSort, sort , dataArray }) => {
+const ControlBar = ({ sort ,dataArray, arrayLength, setArrayLength, setArray, isRunning }) => {
+
+    function updateLength(event) {
+        setArrayLength(event.target.value);
+    }
+
     return (
         <div className='control-bar'>
-            <button> New </button>
-            <button onClick={() => sort(dataArray)}> Start </button>
+            <Button disabled={isRunning} onClick={() => sort(dataArray)} variant="contained" color="primary"> Start </Button>
+            <Button disabled={isRunning} onClick={ () => setArray(arrayLength) } variant="contained" color="primary"> Generate New </Button>
+            <input type="text" value={arrayLength} onChange={ event => updateLength(event)}/>
         </div>
     )
 }
 
 const mapStateToProps = state => ({
-    dataArray: state.settingReducer.dataArray
+    dataArray: state.settingReducer.dataArray,
+    arrayLength: state.settingReducer.arrayLength,
+    isRunning: state.settingReducer.isRunning,
+    isSorted: state.settingReducer.isSorted
 });
 
 const mapDispatchToProps = dispatch => ({
     sort: dataArray => {
-        selectionSort( dataArray, dispatch );
+        dispatch(set_running(true));
+        selectionSort(dataArray, dispatch);
     },
-    startSort: () => dispatch(do_start_sort()),
+    setArray: length => {
+        dispatch(set_array(length));
+        dispatch(set_sorted(false))
+    },
+    setArrayLength: length => dispatch(set_array_length(length))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ControlBar);
