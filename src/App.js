@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="App">
         <TopMenu/>
-          <SortVisualizer/>
         <ControlBar/>
+        <SortVisualizer/>
     </div>
   );
 }

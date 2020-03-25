@@ -1,0 +1,8 @@
+.control-bar {
+    display: flex;
+    margin-top: 200px;
+    justify-content: center;
+}
+.control-bar button {
+    margin-right: 10px;
+}

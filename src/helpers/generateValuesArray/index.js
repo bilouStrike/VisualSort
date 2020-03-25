@@ -1,4 +1,8 @@
 const generateValuesArray = size => {
-    return Array.from({length: size}, () => Math.floor(Math.random() * size + 10));
+    let array = [];
+    while (array.length < size) {
+        array.push(Math.floor(Math.random() * 12) + 12);
+    }
+    return array
 }
 export default generateValuesArray;

@@ -60,7 +60,7 @@ function runDispatch(array, DispatchSignal, dispatch) {
     }
     setTimeout(() => {
         runDispatch(array, DispatchSignal, dispatch);
-    }, 50);
+    }, 20);
 }
 
 export default selectionSort;

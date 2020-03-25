@@ -1,0 +1,23 @@
+.topMenu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    color:#fff;
+    top:0;
+    position: absolute;
+    background-color: #000;
+}
+.topMen__logo {
+    width: 20%;
+}
+.topMen__items {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+
+}
+.topMen__items button {
+    margin-left: 10px;
+    cursor: pointer;
+}

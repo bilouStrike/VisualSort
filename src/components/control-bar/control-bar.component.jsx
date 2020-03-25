@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import selectionSort  from  './../../algorithm/selectionSort';
 import { set_array, set_array_length, set_running, set_sorted } from '../../store/settings/actions';
-import { Button } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
+import './control-bar.styles.css';
 
 const ControlBar = ({ sort ,dataArray, arrayLength, setArrayLength, setArray, isRunning }) => {
 
@@ -15,7 +16,7 @@ const ControlBar = ({ sort ,dataArray, arrayLength, setArrayLength, setArray, is
         <div className='control-bar'>
             <Button disabled={isRunning} onClick={() => sort(dataArray)} variant="contained" color="primary"> Start </Button>
             <Button disabled={isRunning} onClick={ () => setArray(arrayLength) } variant="contained" color="primary"> Generate New </Button>
-            <input type="text" value={arrayLength} onChange={ event => updateLength(event)}/>
+            <TextField type="text" value={arrayLength} onChange={ event => updateLength(event)} variant="outlined" size="small"/>
         </div>
     )
 }
