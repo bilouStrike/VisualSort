@@ -5,7 +5,8 @@ const INITIAL_STATE = {
     arrayLength: 30,
     sortAlgo: '',
     isRunning: false,
-    isSorted: false
+    isSorted: false,
+    speed: 50
 }
 
 const settingReducer = ( state = INITIAL_STATE, action ) => {
@@ -34,6 +35,11 @@ const settingReducer = ( state = INITIAL_STATE, action ) => {
             return {
                 ...state,
                 isSorted:action.payload
+            }
+        case 'SET_SPEED':
+            return {
+                ...state,
+                speed:action.payload
             }
         default:
             return state;

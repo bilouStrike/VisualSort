@@ -22,3 +22,8 @@ export const set_sorted = value => ({
     type: 'SET_SORTED',
     payload: value
 });
+
+export const set_speed = value => ({
+    type: 'SET_SPEED',
+    payload: value
+});

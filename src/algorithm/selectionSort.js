@@ -1,11 +1,11 @@
 import { do_update_j, do_update_lower, do_swap } from '../store/selectionSort/actions';
 import { update_array, set_sorted, set_running } from '../store/settings/actions';
 
-function selectionSort(array, dispatch) {
+function selectionSort(array, speed, dispatch) {
     let arr = array.slice(0);
     let DispatchSignal = [];
     doSelectionSort(arr, DispatchSignal);
-    runDispatch( arr, DispatchSignal, dispatch);  
+    runDispatch(arr, DispatchSignal, speed, dispatch);  
     return arr;  
 }
 
@@ -32,7 +32,7 @@ function doSelectionSort(arr, DispatchSignal) {
     }
 }
 
-function runDispatch(array, DispatchSignal, dispatch) {
+function runDispatch(array, DispatchSignal, speed, dispatch) {
     if (!DispatchSignal.length) {
         dispatch(set_running(false));
         dispatch(do_update_j(0));
@@ -59,8 +59,8 @@ function runDispatch(array, DispatchSignal, dispatch) {
             default:
     }
     setTimeout(() => {
-        runDispatch(array, DispatchSignal, dispatch);
-    }, 20);
+        runDispatch(array, DispatchSignal, speed, dispatch);
+    }, speed);
 }
 
 export default selectionSort;

@@ -1,8 +1,13 @@
 .control-bar {
     display: flex;
+    flex-direction: column;
+    width: 500px;
     margin-top: 200px;
     justify-content: center;
 }
 .control-bar button {
     margin-right: 10px;
+}
+.control-bar__section {
+    margin-top: 20px;
 }

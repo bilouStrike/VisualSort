@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Bar from './../bar/bar.component';
 import './visualizer.css';
 
-const SortVisualizer = ({ dataArray, currentJ, swap, currentLower, isSorted }) =>  {
+const SortVisualizer = ({dataArray, currentJ, swap, currentLower, isSorted, isRunning}) =>  {
    
     return (
         <div className='visualizer-container'>
@@ -11,9 +11,9 @@ const SortVisualizer = ({ dataArray, currentJ, swap, currentLower, isSorted }) =
                 dataArray.map( (value, index) => (
                     <Bar key={index} 
                         height={value}
-                        currentJ={currentJ == index ? true : false}
-                        currentLower={currentLower == index ? true : false}
-                        swap={ swap.includes(index) ? true : false  }
+                        currentJ={currentJ === index && !isSorted && isRunning ? true : false}
+                        currentLower={currentLower === index && !isSorted && isRunning ? true : false}
+                        swap={swap.includes(index) ? true : false}
                         sorted={isSorted}
                     />
                 ))
@@ -26,7 +26,8 @@ const mapStateToProps = state => ({
     currentJ: state.selectionSortReducer.currentJ,
     currentLower: state.selectionSortReducer.currentLower,
     swap: state.selectionSortReducer.swap,
-    isSorted: state.settingReducer.isSorted
+    isSorted: state.settingReducer.isSorted,
+    isRunning: state.settingReducer.isRunning
 });
 
 
