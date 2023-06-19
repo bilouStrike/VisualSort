@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/VisualSort/static/css/main.1c6580e0.chunk.css",
+    "main.js": "/VisualSort/static/js/main.487a3336.chunk.js",
+    "main.js.map": "/VisualSort/static/js/main.487a3336.chunk.js.map",
+    "runtime-main.js": "/VisualSort/static/js/runtime-main.8766dc12.js",
+    "runtime-main.js.map": "/VisualSort/static/js/runtime-main.8766dc12.js.map",
+    "static/js/2.272a7300.chunk.js": "/VisualSort/static/js/2.272a7300.chunk.js",
+    "static/js/2.272a7300.chunk.js.map": "/VisualSort/static/js/2.272a7300.chunk.js.map",
+    "index.html": "/VisualSort/index.html",
+    "precache-manifest.50b8fa9629c50c3e4ea302c42faf5dea.js": "/VisualSort/precache-manifest.50b8fa9629c50c3e4ea302c42faf5dea.js",
+    "service-worker.js": "/VisualSort/service-worker.js",
+    "static/css/main.1c6580e0.chunk.css.map": "/VisualSort/static/css/main.1c6580e0.chunk.css.map",
+    "static/js/2.272a7300.chunk.js.LICENSE.txt": "/VisualSort/static/js/2.272a7300.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8766dc12.js",
+    "static/js/2.272a7300.chunk.js",
+    "static/css/main.1c6580e0.chunk.css",
+    "static/js/main.487a3336.chunk.js"
+  ]
+}
