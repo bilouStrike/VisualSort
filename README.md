@@ -1,4 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Demo](https://biloustrike.github.io/VisualSort/)
+![sort](https://github.com/bilouStrike/VisualSort/assets/12693924/6a3c7f32-c43a-4efe-b20f-24d6870252f3)
 
 ## Available Scripts
 
